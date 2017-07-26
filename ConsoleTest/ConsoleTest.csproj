@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6B23016E-85C6-4725-A2CB-2C5317C9C595}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SunGard.AvantGard.Solution.Ban.ConsoleTest</RootNamespace>
+    <AssemblyName>SunGard.AvantGard.Solution.Ban.ConsoleTest</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\build\BankAccountNotification\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\build\BankAccountNotification\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>ConsoleTest.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BanService\BanService.csproj">
+      <Project>{0F0B9622-9569-4AF5-94B8-729903CBC758}</Project>
+      <Name>BanService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BizBase\BizBase.csproj">
+      <Project>{852D957D-5DAF-4CFD-A20C-58F21A9DECB4}</Project>
+      <Name>BizBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{DC2DB8D7-4264-463C-B91F-81863D19DEA4}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FileMonitor\FileMonitor.csproj">
+      <Project>{5E04D1B2-C9CE-4562-9D42-2C786CCB031A}</Project>
+      <Name>FileMonitor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Formatting\Formatting.csproj">
+      <Project>{1449E01D-07DA-406A-A0C5-49A793549594}</Project>
+      <Name>Formatting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NetworkListener\NetworkListener.csproj">
+      <Project>{D84533F1-91F0-4AC3-A721-24E08D96A3B2}</Project>
+      <Name>NetworkListener</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RFCInterface\RfcInterface.csproj">
+      <Project>{AFE0B875-EFB5-4921-B93A-42464CC0B9ED}</Project>
+      <Name>RfcInterface</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

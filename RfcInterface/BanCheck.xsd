@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="BanCheck" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="packet" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="head" type="HeadPart"></xs:element>
+              <xs:element name="body">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="list" minOccurs="1" maxOccurs="unbounded" type="ListPart"></xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:key name="OurRefKey">
+      <xs:selector xpath="packet/head"/>
+      <xs:field xpath="refID"/>
+    </xs:key>
+  </xs:element>
+  <xs:complexType name="HeadPart">
+    <xs:all>
+      <xs:element name="bankCode">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="02"/>
+            <xs:enumeration value="03"/>
+            <xs:enumeration value="05"/>
+            <xs:enumeration value="06"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="transCode">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="1002"/>
+            <xs:enumeration value="1003"/>
+            <xs:enumeration value="1022"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="transDate" type="yyyyMMdd"/>
+      <xs:element name="transTime" type="xs:string"/>
+      <xs:element name="refID">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:pattern value="[0-9a-zA-Z-]+"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="ListPart">
+    <xs:all>
+      <xs:element name="refID" type="xs:string"/>
+      <xs:element name="bankRefID" type="xs:string"/>
+      <xs:element name="transDate" type="yyyyMMdd"/>
+      <xs:element name="transTime" type="HHmmss"/>
+      <xs:element name="acctNo" type="xs:string"/>
+      <xs:element name="acctName" type="xs:string"/>
+      <xs:element name="currType" type="xs:string"/>
+      <xs:element name="amount" type="xs:string"/>
+      <xs:element name="balance" type="xs:string"/>
+      <xs:element name="cptyAcctNo" type="xs:string"/>
+      <xs:element name="cptyAcctName" type="xs:string"/>
+      <xs:element name="cptyBankName" type="xs:string"/>
+      <xs:element name="remark" type="xs:string"/>
+      <xs:element name="abstract" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:simpleType name="yyyyMMdd">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d{4}(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="HHmmss">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-2][0-9]([0-5][0-9]){2}"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
